@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Albums</h1>
+    <table class='table'>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Artist</th>
+      <th>Action(s)</th>
+    </tr>
+    <?php foreach ($albums as $album) : ?>
+    <tr>
+        <td><?= $this->escapeHtml($album->id) ?></td>
+        <td><?= $this->escapeHtml($album->title) ?></td>
+        <td><?= $this->escapeHtml($album->artist) ?></td>
+        <td>
+            <a class='btn btn-danger' href="<?= $this->url('album', ['action' => 'edit', 'id' => $album->id]) ?>">Edit</a>
+            <a class='btn btn-danger' href="<?= $this->url('album', ['action' => 'delete', 'id' => $album->id]) ?>">Delete</a>
+            <a class='btn btn-danger' href="<?= $this->url('album', ['action' => 'view','id' => $album->id]) ?>">View Album</a>
+        </td>
+    </tr>
+<?php endforeach; ?>
+</table>
+</body>
+</html>

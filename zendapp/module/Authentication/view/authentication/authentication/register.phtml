@@ -1,0 +1,18 @@
+<?php  
+$title = 'Register new User'; 
+$this->headTitle($title);  
+?>  
+<h1><?php echo $this->escapeHtml($title); ?></h1>  
+<?php  
+if(!empty($form)) {  
+   $form->setAttribute('action', $this->url('authentication', array('action' => 'register'))); 
+   $form->prepare();  
+   echo $this->form()->openTag($form); 
+
+   echo $this->formRow($form->get('username'))."<br><br>"; 
+   echo $this->formRow($form->get('email'))."<br><br>"; 
+   echo $this->formRow($form->get('password'))."<br><br>"; 
+   echo $this->formSubmit($form->get('submit')); 
+   
+   echo $this->form()->closeTag(); 
+} 
